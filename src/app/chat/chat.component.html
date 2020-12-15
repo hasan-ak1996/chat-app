@@ -1,0 +1,35 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label  for="message">
+                    Message
+                </label>
+                <input
+                type="text"
+                class="form-control"
+                name="message"
+                id="message"
+                [(ngModel)]="message"
+                />
+
+            </div>
+            <button class="btn btn-primary" (click)="sendMessage()">Send Message</button>
+
+        </div>
+    </div>
+
+    <ul>
+        <li *ngFor="let chat of chats">
+            <div>
+                <div>
+                <span class="msg-name" *ngIf="chat.username === username">Me</span>
+                <span class="msg-name" *ngIf="chat.username !== username">{{chat.username}}</span>
+                <p text-wrap>{{chat.message}}</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+  
+</div>
